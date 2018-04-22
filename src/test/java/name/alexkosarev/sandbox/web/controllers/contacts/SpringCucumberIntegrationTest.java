@@ -12,7 +12,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
+import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessRequest;
+import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse;
+import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 
 @SpringBootTest
@@ -39,6 +43,7 @@ public abstract class SpringCucumberIntegrationTest {
                 .apply(springSecurity())// applying Spring Security
                 .apply(documentationConfiguration(restDocumentation)// applying Spring Restdocs
                         .snippets().withAdditionalDefaults(new WireMockSnippet()))// applying Spring Cloud Contract и WireMock
+                .alwaysDo(document("{method-name}", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
                 .build();
 
         // Spring Restdocs context initialization

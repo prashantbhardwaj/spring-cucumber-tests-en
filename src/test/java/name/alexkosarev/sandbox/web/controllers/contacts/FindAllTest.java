@@ -8,6 +8,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         strict = true,
         glue = "name.alexkosarev.sandbox.web.controllers.contacts",
-        features = "classpath:features/contacts/FindAll.feature")
+        features = "classpath:features/contacts")
 public class FindAllTest {
 }
