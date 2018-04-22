@@ -22,7 +22,7 @@ import org.springframework.web.context.WebApplicationContext;
 import static org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.documentationConfiguration;
 
 @SpringBootTest
-@ContextConfiguration(classes = SpringCucumberTestsApplication.class)
+//@ContextConfiguration(classes = SpringCucumberTestsApplication.class)
 public abstract class RestAssuredCucumberRestDocIntegrationTest {
 
     @ClassRule
