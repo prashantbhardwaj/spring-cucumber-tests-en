@@ -1,0 +1,286 @@
+= Scoreboard - Getting Started Guide
+Prashant Bhardwaj;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+:operation-curl-request-title: Example request
+:operation-http-response-title: Example response
+
+[introduction]
+= Introduction
+
+Scoreboard-service is a RESTful microservice for ...
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP verbs
+Scoreboard-service tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs.
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PATCH`
+| Used to update an existing resource, including partial updates
+
+| `PUT`
+| Used to update an existing resource, full updates only
+
+| `DELETE`
+| Used to delete an existing resource
+|===
+
+[[overview-http-status-codes]]
+== HTTP status codes
+Scoreboard-service tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes.
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| Standard response for successful HTTP requests.
+ The actual response will depend on the request method used.
+ In a GET request, the response will contain an entity corresponding to the requested resource.
+ In a POST request, the response will contain an entity describing or containing the result of the action.
+
+| `201 Created`
+| The request has been fulfilled and resulted in a new resource being created.
+
+| `204 No Content`
+| The server successfully processed the request, but is not returning any content.
+
+| `400 Bad Request`
+| The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+
+| `404 Not Found`
+| The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.
+|===
+
+[[resources]]
+= Resources
+
+[[resources-book]]
+== Book
+The Book resource.
+
+[[resource-book-add]]
+=== Add Book
+A `POST` request creates a new Book.
+
+==== Request structure
+
+include::{snippets}/Book-response/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/Book-response/http-response.adoc[]
+
+[[resources-book]]
+== Book
+The Book resource.
+
+[[resource-find-all]]
+=== Find all
+A `POST` request creates a new Book.
+
+==== Request structure
+
+include::{snippets}/contacts/findAll/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/contacts/findAll/http-response.adoc[]
+
+[[resources-tournament]]
+== Tournament
+The Tournament resource is used to create, modify and list tournament.
+  
+[[resource-tournament-add]]
+=== Add Tournament
+A `POST` request creates a new tournament.
+
+==== Request structure
+
+include::{snippets}/success-add-tournament/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/success-add-tournament/http-response.adoc[]
+
+[[resources-match]]
+== Match
+The Match resource is used to create, modify and list match.
+
+[[resource-match-add-blank]]
+=== Add Blank Match
+A `POST` request fetches a new match.
+
+==== Request structure
+
+include::{snippets}/success-add-blank-match/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/success-add-blank-match/http-response.adoc[]
+
+
+[[resource-match-add-main-details]]
+=== Add Match with main details
+A `POST` request adds a new match with main details.
+
+==== Request structure
+
+include::{snippets}/success-add-match-with-main-details/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/success-add-match-with-main-details/http-response.adoc[]
+
+[[resource-match-update-initial-details]]
+=== Update Match with Tournament and Stadium
+A `PUT` request adds a new match with initial details.
+
+==== Request structure
+
+include::{snippets}/success-update-match-with-initial-details/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/success-update-match-with-initial-details/http-response.adoc[]
+
+[[resource-add-player-in-playingXI]]
+=== Add players in PlayingXI
+A `PUT` request adds a list of players in a playingXI.
+
+==== Request structure
+
+include::{snippets}/add-player-in-playing-eleven/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/add-player-in-playing-eleven/http-response.adoc[]
+
+[[resource-add-player-roles-in-playingXI]]
+=== Add player roles in PlayingXI
+A `PUT` request adds a Captain and Wicket Keeper in a playingXI.
+
+==== Request structure
+
+include::{snippets}/add-player-role-in-playing-eleven/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/add-player-role-in-playing-eleven/http-response.adoc[]
+
+
+[[resource-add-toss-in-match]]
+=== Add Toss in Match
+A `PUT` request adds a Toss in a Match.
+
+==== Request structure
+
+include::{snippets}/add-toss-in-match/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/add-toss-in-match/http-response.adoc[]
+
+
+[[resource-match-get]]
+=== Get Match
+A `GET` request fetches a new match.
+
+==== Request structure
+
+include::{snippets}/success-get-match/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/success-get-match/http-response.adoc[]
+
+[[resources-innings]]
+== Innings
+The Innings resource is used to create, modify and list Innings.
+
+[[resource-innings-add]]
+=== Add Innings
+A `POST` request creates a new Innings.
+
+==== Request structure
+
+include::{snippets}/success-add-innings/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/success-add-innings/http-response.adoc[]
+
+[[resource-innings-get]]
+=== Get Innings
+A `GET` request fetches a Innings with given ID.
+
+==== Request structure
+
+include::{snippets}/success-get-innings/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/success-get-innings/http-response.adoc[]
+
+[[resource-over-add-batsman-in-innings]]
+=== Add Batsman in Innings
+A `PUT` request adds a batsman in an Innings.
+
+==== Request structure
+
+include::{snippets}/success-add-batsman-in-innings/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/success-add-batsman-in-innings/http-response.adoc[]
+
+[[resource-over-add-bowler-in-innings]]
+=== Add Bowler in Innings
+A `PUT` request adds a Bowler in an Innings.
+
+==== Request structure
+
+include::{snippets}/success-add-bowler-in-innings/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/success-add-bowler-in-innings/http-response.adoc[]
+
+[[resource-over-add-in-innings]]
+=== Add Over in Innings
+A `POST` request adds an Over in an Innings.
+
+==== Request structure
+
+include::{snippets}/success-add-over/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/success-add-over/http-response.adoc[]
+
+[[resource-add-ball-in-over]]
+=== Add Ball in Over
+A `POST` request adds a Ball in an Over.
+
+==== Request structure
+
+include::{snippets}/success-add-ball-in-over/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/success-add-ball-in-over/http-response.adoc[]
