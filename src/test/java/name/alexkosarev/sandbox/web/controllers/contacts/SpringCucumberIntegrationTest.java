@@ -1,5 +1,6 @@
 package name.alexkosarev.sandbox.web.controllers.contacts;
 
+import cucumber.api.Scenario;
 import name.alexkosarev.sandbox.repositories.ContactRepository;
 import name.alexkosarev.sandbox.SpringCucumberTestsApplication;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public abstract class SpringCucumberIntegrationTest {
 
     private ManualRestDocumentation restDocumentation;
 
-    public void setUp() {
+    public void setUp(String scenario) {
         // Spring Restdocs
         restDocumentation = new ManualRestDocumentation("target/generated-snippets");
 
@@ -53,5 +54,13 @@ public abstract class SpringCucumberIntegrationTest {
     public void tearDown() {
         // Spring Restdocs context shutdown
         restDocumentation.afterTest();
+    }
+
+    protected String getScenarioName(Scenario scenario){
+        String scenarioName = scenario.getName();
+        if(scenarioName.length() > 100){
+            return scenarioName.substring(0, 99);
+        }
+        return scenarioName;
     }
 }

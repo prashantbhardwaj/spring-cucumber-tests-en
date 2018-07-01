@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ContactsController {
 
-    private final ContactRepository repository;
+    private ContactRepository repository;
 
     @GetMapping
     public ResponseEntity<List<Contact>> findAll() {

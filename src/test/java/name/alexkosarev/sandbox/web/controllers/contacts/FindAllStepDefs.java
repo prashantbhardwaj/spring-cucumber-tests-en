@@ -1,5 +1,6 @@
 package name.alexkosarev.sandbox.web.controllers.contacts;
 
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -30,8 +31,8 @@ public class FindAllStepDefs extends SpringCucumberIntegrationTest {
     private ResultActions resultActions;
 
     @Before
-    public void setUp() {
-        super.setUp();
+    public void setUp(Scenario scenario) {
+        super.setUp(getScenarioName(scenario));
     }
 
     @Given("^contacts stored in the storage:$")
